@@ -60,7 +60,10 @@
     "setupFilesAfterEnv": [
       "./test/setup/jest.setup.js"
     ],
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "transform": {
       "^.+\\.js?$": "babel-jest"
     }
@@ -70,6 +73,7 @@
     "test": "test"
   },
   "dependencies": {
+    "@laufire/utils": "3.0.0-0",
     "express": "^4.18.2",
     "pino": "^5.13.4"
   }

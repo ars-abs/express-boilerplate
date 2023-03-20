@@ -6,6 +6,7 @@ specifiers:
   '@babel/plugin-transform-runtime': ^7.6.2
   '@babel/preset-env': ^7.5.5
   '@babel/runtime': ^7.7.2
+  '@laufire/utils': 3.0.0-0
   acorn: ^6.3.0
   babel-core: ^7.0.0-bridge.0
   babel-eslint: ^10.0.3
@@ -19,6 +20,7 @@ specifiers:
   regenerator-runtime: ^0.13.2
 
 dependencies:
+  '@laufire/utils': 3.0.0-0
   express: 4.18.2
   pino: 5.17.0
 
@@ -1193,7 +1195,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
-    dev: true
 
   /@babel/template/7.20.7:
     resolution: {integrity: sha512-8SegXApWe6VoNw0r9JHpSteLKTpTiLZ4rMlGIm9JQ18KiCtyQiAMEazujAHrUS5flrcqYZa75ukev3P6QmUwUw==}
@@ -1448,6 +1449,14 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@laufire/utils/3.0.0-0:
+    resolution: {integrity: sha512-NQK/odg5weAAG9UqFhibSfW0BLgGcT+H7yNc82jEbqfToCyJL0SBI40pB34HqlF850IhKRUQ6uBFA6Ip6K66ww==}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
 
   /@nicolo-ribaudo/chokidar-2/2.1.8-no-fsevents.3:
     resolution: {integrity: sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==}
@@ -2852,7 +2861,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -4714,7 +4722,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regenerator-transform/0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}
