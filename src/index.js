@@ -1,13 +1,20 @@
 /* The main entry. */
 
 import config from './base/config';
-import logger from './base/logger';
+import express from 'express';
+import server from './setup/server';
 
 /* Tasks */
-const main = async () => {
-	await logger.info(`Starting in ${ config.environment } environment.`);
+const main = () => {
+	const context = {
+		app: express(),
+		config: config,
+	};
+
+	server(context);
 };
 
+main();
 export {
 	main,
 };
