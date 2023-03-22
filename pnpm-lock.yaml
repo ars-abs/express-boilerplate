@@ -11,6 +11,7 @@ specifiers:
   babel-core: ^7.0.0-bridge.0
   babel-eslint: ^10.0.3
   babel-jest: ^24.9.0
+  dotenv: ^16.0.3
   eslint: ^5.16.0
   express: ^4.18.2
   jest: ^24.9.0
@@ -21,6 +22,7 @@ specifiers:
 
 dependencies:
   '@laufire/utils': 3.0.0-0
+  dotenv: 16.0.3
   express: 4.18.2
   pino: 5.17.0
 
@@ -2308,6 +2310,11 @@ packages:
     dependencies:
       webidl-conversions: 4.0.2
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /ecc-jsbn/0.1.2:
     resolution: {integrity: sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw==}
