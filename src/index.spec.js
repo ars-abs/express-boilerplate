@@ -2,12 +2,12 @@
 jest.mock('express');
 jest.mock('./base/logger');
 jest.mock('./setup/setupControllers');
-jest.mock('./setup/server');
+jest.mock('./setup/setupServer');
 
 import express from 'express';
 import config from './base/config';
 import setupControllers from './setup/setupControllers';
-import server from './setup/server';
+import setupServer from './setup/setupServer';
 
 /* Tests */
 import { main } from '.';
@@ -24,6 +24,6 @@ describe('the package', () => {
 		main();
 
 		expect(setupControllers).toHaveBeenCalledWith(context);
-		expect(server).toHaveBeenCalledWith(context);
+		expect(setupServer).toHaveBeenCalledWith(context);
 	});
 });
