@@ -1,9 +1,6 @@
+import setContext from '../middlewares/setContext';
+
 const setupContext = ({ app, ...rest }) =>
-	app.use((
-		req, res, next
-	) => {
-		req.context = { ...rest };
-		next();
-	});
+	app.use(setContext(rest));
 
 export default setupContext;
