@@ -1,5 +1,8 @@
 /* Mocks & Stubs */
-const mockEnv = {};
+const mockEnv = {
+	environment: 'development',
+	port: 3000,
+};
 const mockProcessModule = {
 	env: mockEnv,
 };
@@ -12,17 +15,18 @@ describe('the config', () => {
 		mockEnv.NODE_ENV = 'production';
 		const config = require('./config').default;
 
-		expect(config.environment).toEqual('production');
+		expect(config.env.environment).toEqual('production');
 		delete mockEnv.NODE_ENV;
 	});
 
-	test('When NODE_ENV is not present config.env is development.', () => {
-		delete mockEnv.NODE_ENV;
+	test('When NODE_ENV is not present config.env.environment is development.',
+		() => {
+			delete mockEnv.NODE_ENV;
 
-		const config = require('./config').default;
+			const config = require('./config').default;
 
-		expect(config.environment).toEqual('development');
-	});
+			expect(config.env.environment).toEqual('development');
+		});
 
 	test('Environment variables are available as config.env.', () => {
 		mockEnv.someVar = Symbol('someVar');
