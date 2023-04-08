@@ -1,6 +1,6 @@
 import logger from '../base/logger';
 
-const setupServer = ({ app, config: { port, environment }}) => {
+const setupServer = ({ app, config: { env: { port, environment }}}) => {
 	app.listen(port, () => {
 		logger.info(`Starting in ${ environment } environment at port ${ port }.`);
 	});

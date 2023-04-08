@@ -10,6 +10,7 @@ test('setup server', () => {
 
 	setupServer(context);
 
-	expect(app.listen).toHaveBeenCalledWith(config.port, expect.any(Function));
+	expect(app.listen)
+		.toHaveBeenCalledWith(config.env.port, expect.any(Function));
 	expect(logger.info).toHaveBeenCalledWith(expect.any(String));
 });
