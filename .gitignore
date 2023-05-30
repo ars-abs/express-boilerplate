@@ -15,6 +15,7 @@ node_modules
 !.editorconfig
 !.eslint*
 /dist
+*.sqlite
 
 ## Stack
 !.npmignore
