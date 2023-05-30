@@ -8,10 +8,12 @@ import { expressAuth } from 'express-auth';
 import setupMiddleWares from './setup/setupMiddleWares';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
 import { map } from '@laufire/utils/collection';
+import getRepos from './getRepos';
 
 const main = () => {
 	const app = express();
-	const context = { app, config };
+	const repos = getRepos({ config });
+	const context = { app, config, repos };
 
 	const setupSteps = [
 		setupContext,
