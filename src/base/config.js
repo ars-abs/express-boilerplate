@@ -114,6 +114,12 @@ const config = {
 			repo: 'postgres',
 		},
 	},
+	schemaExtensions: {
+		test: {
+			type: 'string',
+			title: 'test',
+		},
+	},
 	auth: {
 		strategies: {
 			google: {
@@ -143,7 +149,7 @@ const config = {
 		loginURL: '/login',
 		logoutURL: '/logout',
 		callbackURL: '/cb',
-		repo: 'sqlite',
+		repo: 'postgres',
 	},
 };
 
