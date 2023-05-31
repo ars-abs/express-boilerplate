@@ -3,8 +3,8 @@ import express from 'express';
 import setupServer from './setup/setupServer';
 import setupRoutes from './setup/setupRoutes';
 import setupContext from './setup/setupContext';
-import { expressResources } from 'express-resources';
-import { expressAuth } from 'express-auth';
+import { expressResources as setupResources } from 'express-resources';
+import { expressAuth as setupAuth } from 'express-auth';
 import setupMiddleWares from './setup/setupMiddleWares';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
 import { map } from '@laufire/utils/collection';
@@ -19,9 +19,9 @@ const main = () => {
 		setupContext,
 		setupMiddleWares,
 		setupRoutes,
-		expressAuth,
+		setupAuth,
 		setupProtectedRoutes,
-		expressResources,
+		setupResources,
 		setupServer,
 	];
 	const setup = (data) => map(setupSteps, (setupStep) => setupStep(data));
