@@ -35,6 +35,17 @@ const config = {
 		ledgers: {
 			name: 'ledgers',
 			indexes: [{ fields: ['ledger'] }],
+			pagination: {
+				page: { default: 1 },
+				limit: { default: 25, max: 200 },
+				order: {
+					default: 'recent',
+					orders: {
+						// instead of object use 2D array reason may miss the sorting order
+						recent: [['dateTime', 'ASC']],
+					},
+				},
+			},
 			schema: {
 				type: 'object',
 				properties: {
@@ -79,6 +90,17 @@ const config = {
 		journals: {
 			name: 'journals',
 			indexes: [{ fields: ['document'] }],
+			pagination: {
+				page: { default: 1 },
+				limit: { default: 25, max: 200 },
+				order: {
+					default: 'recent',
+					orders: {
+						// instead of object use 2D array reason may miss the sorting order
+						recent: [['date', 'ASC']],
+					},
+				},
+			},
 			schema: {
 				type: 'object',
 				properties: {
