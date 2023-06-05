@@ -35,7 +35,7 @@ const config = {
 		ledgers: {
 			name: 'ledgers',
 			schema: {
-				id: 'ledger',
+				type: 'object',
 				properties: {
 					ledger: {
 						type: 'string',
@@ -78,7 +78,7 @@ const config = {
 		journals: {
 			name: 'journals',
 			schema: {
-				id: 'journals',
+				type: 'object',
 				properties: {
 					date: {
 						type: 'string',
