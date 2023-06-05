@@ -34,6 +34,7 @@ const config = {
 	resources: {
 		ledgers: {
 			name: 'ledgers',
+			indexes: [{ fields: ['ledger'] }],
 			schema: {
 				type: 'object',
 				properties: {
@@ -77,6 +78,7 @@ const config = {
 		},
 		journals: {
 			name: 'journals',
+			indexes: [{ fields: ['document'] }],
 			schema: {
 				type: 'object',
 				properties: {
