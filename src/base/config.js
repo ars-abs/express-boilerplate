@@ -36,13 +36,15 @@ const config = {
 			name: 'ledgers',
 			indexes: [{ fields: ['ledger'] }],
 			pagination: {
-				page: { default: 1 },
+				offset: { default: 0 },
 				limit: { default: 25, max: 200 },
 				order: {
 					default: 'recent',
 					orders: {
-						// instead of object use 2D array reason may miss the sorting order
-						recent: [['dateTime', 'ASC']],
+						recent: [{
+							field: 'dateTime',
+							direction: 'ASC',
+						}],
 					},
 				},
 			},
@@ -91,13 +93,15 @@ const config = {
 			name: 'journals',
 			indexes: [{ fields: ['document'] }],
 			pagination: {
-				page: { default: 1 },
+				offset: { default: 0 },
 				limit: { default: 25, max: 200 },
 				order: {
 					default: 'recent',
 					orders: {
-						// instead of object use 2D array reason may miss the sorting order
-						recent: [['date', 'ASC']],
+						recent: [{
+							field: 'date',
+							direction: 'ASC',
+						}],
 					},
 				},
 			},
