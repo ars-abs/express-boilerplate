@@ -8,15 +8,17 @@ import { expressAuth as setupAuth } from 'express-auth';
 import setupMiddleWares from './setup/setupMiddleWares';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
 import getRepos from './getRepos';
+import setupHooks from './setup/setupHooks';
 
 const main = async () => {
-	const app = express();
-	const repos = getRepos({ config });
-	const context = { app, config, repos };
+	const context = {
+		app: express(), config: config, repos: getRepos({ config }),
+	};
 
 	setupContext(context);
 	setupMiddleWares(context);
 	setupRoutes(context);
+	setupHooks(context);
 	await setupResources(context);
 	setupAuth(context);
 	setupProtectedRoutes(context);
