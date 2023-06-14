@@ -7,7 +7,6 @@ import { expressResources as setupResources } from 'express-resources';
 import { expressAuth as setupAuth } from 'express-auth';
 import setupMiddleWares from './setup/setupMiddleWares';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
-// import { map } from '@laufire/utils/collection';
 import getRepos from './getRepos';
 
 const main = async () => {

@@ -1,7 +1,7 @@
-import root from '../controllers/root';
+import home from '../controllers/home';
 
 const setupProtectedRoutes = ({ app }) => {
-	app.get('/', root);
+	app.get('/', home);
 };
 
 export default setupProtectedRoutes;
