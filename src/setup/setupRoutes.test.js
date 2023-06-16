@@ -1,15 +1,15 @@
 import info from '../controllers/info';
 import ping from '../controllers/ping';
-import setupControllers from './setupControllers';
+import setupRoutes from './setupRoutes';
 
 jest.mock('../controllers/ping');
 jest.mock('../controllers/info');
 jest.mock('../controllers/ping');
 
-test('setupControllers', () => {
+test('setupRoutes', () => {
 	const app = { get: jest.fn() };
 
-	setupControllers({ app });
+	setupRoutes({ app });
 
 	expect(app.get).toHaveBeenCalledWith('/ping', ping);
 	expect(app.get).toHaveBeenCalledWith('/info', info);
