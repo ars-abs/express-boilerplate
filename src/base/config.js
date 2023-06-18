@@ -1,4 +1,3 @@
-import { env } from 'process';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -7,12 +6,12 @@ const {
 	NODE_ENV: nodeEnv = 'development',
 	// eslint-disable-next-line no-magic-numbers
 	PORT = 3000,
-	...rest
-} = env;
+	...env
+} = process.env;
 
 const config = {
 	env: {
-		...rest,
+		...env,
 		environment: nodeEnv,
 		port: PORT,
 	},
