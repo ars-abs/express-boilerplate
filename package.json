@@ -1,13 +1,13 @@
 {
-  "name": "",
-  "version": "0.0.0",
+  "name": "express-boilerplate",
+  "version": "1.0.0",
   "description": "",
   "main": "./index.js",
   "scripts": {
     "start": "npm run build && npm run dev",
     "test": "jest --no-cache",
     "build": "rm -rf ./dist && babel --ignore '**/*.spec.js' -d ./dist ./src && npm run copy",
-    "dev": "node dist/index.js",
+    "dev": "babel-node src/index.js",
     "prepareDist": "npm run lint && npm test && npm run build",
     "dist": "npm run prepareDist && cd dist && npm publish --access public && cd ..",
     "copy": "cp ./package.json ./ReadMe.md ./LICENSE ./dist/",
