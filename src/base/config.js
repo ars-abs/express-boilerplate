@@ -18,6 +18,7 @@ const config = {
 	},
 
 	// configurations here...
+	cors: { origin: '*' },
 	repos: {
 		postgres: {
 			type: 'postgres',
