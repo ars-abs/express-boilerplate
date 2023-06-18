@@ -3,14 +3,14 @@ import setupRoutes from './setup/setupRoutes';
 import buildContext from './setup/buildContext';
 import { expressResources as setupResources } from 'express-resources';
 import { expressAuth as setupAuth } from 'express-auth';
-import setupMiddleWares from './setup/setupMiddleWares';
+import setupMiddleWare from './setup/setupMiddleWare';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
 import setupHooks from './setup/setupHooks';
 
 const main = async () => {
 	const context = buildContext();
 
-	setupMiddleWares(context);
+	setupMiddleWare(context);
 	setupRoutes(context);
 	setupHooks(context);
 	await setupResources(context);
