@@ -1,21 +1,15 @@
-import config from './base/config';
-import express from 'express';
 import setupServer from './setup/setupServer';
 import setupRoutes from './setup/setupRoutes';
-import setupContext from './setup/setupContext';
+import buildContext from './setup/buildContext';
 import { expressResources as setupResources } from 'express-resources';
 import { expressAuth as setupAuth } from 'express-auth';
 import setupMiddleWares from './setup/setupMiddleWares';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
-import getRepos from './getRepos';
 import setupHooks from './setup/setupHooks';
 
 const main = async () => {
-	const context = {
-		app: express(), config: config, repos: getRepos({ config }),
-	};
+	const context = buildContext();
 
-	setupContext(context);
 	setupMiddleWares(context);
 	setupRoutes(context);
 	setupHooks(context);
