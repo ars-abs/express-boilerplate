@@ -1,13 +1,13 @@
 import express from 'express';
 import config from '../base/config';
 import getRepos from '../getRepos';
-import setContext from '../middlewares/setContext';
+import enrichReq from '../middlewares/setContext';
 
 const buildContext = () => {
 	const context = { config: config, repos: getRepos({ config })	};
 	const app = express();
 
-	app.use(setContext(context));
+	app.use(enrichReq(context));
 
 	return { ...context, app };
 };
