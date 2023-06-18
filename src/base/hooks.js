@@ -1,6 +1,6 @@
-const sendReports = (req, res) => res.send('sendReports');
+const fn = (req, res) => res.send('example hook');
 const hooks = {
-	sendReports,
+	'example-hook': fn,
 };
 
 export default hooks;
