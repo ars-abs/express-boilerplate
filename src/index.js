@@ -7,18 +7,17 @@ import { expressAuth as setupAuth } from 'express-auth';
 import setupMiddleWare from './setup/setupMiddleWare';
 import setupProtectedRoutes from './setup/setupProtectedRoutes';
 import setupHooks from './setup/setupHooks';
+import { runSteps } from './helpers';
 
-const main = async () => {
-	const context = buildContext();
-
-	setupMiddleWare(context);
-	setupRoutes(context);
-	setupHooks(context);
-	await setupResources(context);
-	setupAuth(context);
-	setupProtectedRoutes(context);
-	setupServer(context);
-};
+const main = () => runSteps([
+	setupMiddleWare,
+	setupRoutes,
+	setupHooks,
+	setupResources,
+	setupAuth,
+	setupProtectedRoutes,
+	setupServer,
+], buildContext());
 
 main();
 
