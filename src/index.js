@@ -1,3 +1,4 @@
+import 'module-alias/register';
 import setupServer from './setup/setupServer';
 import setupRoutes from './setup/setupRoutes';
 import buildContext from './setup/buildContext';

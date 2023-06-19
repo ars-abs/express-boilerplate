@@ -86,5 +86,12 @@
     "pino": "^5.13.4",
     "sequelize": "^6.31.1",
     "sqlite3": "^5.1.6"
+  },
+  "_moduleAliases": {
+    "@base": "src/base/",
+    "@controllers": "src/controllers",
+    "@getRepos": "src/getRepos",
+    "@middlewares": "src/middlewares",
+    "@setup": "src/setup"
   }
 }
