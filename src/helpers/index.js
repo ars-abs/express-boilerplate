@@ -19,7 +19,14 @@ const reduceSync = async (
 
 	return acc;
 };
+const runSteps = (steps, data) => reduceSync(
+	steps, (acc, step) => {
+		step(acc);
+		return acc;
+	}, data
+);
 
 export {
 	reduceSync,
+	runSteps,
 };
