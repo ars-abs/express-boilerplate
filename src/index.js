@@ -10,8 +10,8 @@ import { pipe } from './helpers';
 const main = () => pipe([
 	setupMiddleWare,
 	setupRoutes,
-	setupHooks,
 	setupResources,
+	setupHooks,
 	setupServer,
 ], buildContext());
 
