@@ -32,74 +32,31 @@ const config = {
 		},
 	},
 	resources: {
-		ledgers: {
-			name: 'ledgers',
-			indexes: [{ fields: ['ledger'] }],
-			pagination: {
-				offset: { default: 0 },
-				limit: { default: 25, max: 200 },
-				order: {
-					default: 'recent',
-					orders: {
-						recent: [{
-							field: 'dateTime',
-							direction: 'ASC',
-						}],
-					},
-				},
-			},
+		teachers: {
 			schema: {
 				type: 'object',
 				properties: {
-					ledger: {
-						type: 'string',
-						title: 'Ledger',
-					},
-					type: {
-						type: 'string',
-						title: 'Type',
-					},
-					accountType: {
-						type: 'string',
-						title: 'AccountType',
-					},
-					balances: {
-						type: 'number',
-						title: 'Balances',
-					},
-					notes: {
-						type: 'string',
-						title: 'Notes',
-					},
-					isActive: {
-						type: 'boolean',
-						title: 'IsActive',
-					},
-					dateTime: {
-						type: 'string',
-						format: 'date-time',
-						title: 'DateTime',
-					},
-					time: {
-						type: 'string',
-						format: 'time',
-						title: 'Time',
-					},
+					name: { type: 'string' },
+					subject: { type: 'string' },
+					address: { type: 'string' },
+					salary: { type: 'number' },
+					experience: { type: 'string' },
 				},
 			},
 			repo: 'postgres',
 		},
-		journals: {
-			name: 'journals',
-			indexes: [{ fields: ['document'] }],
+		students: {
+			name: 'students',
+			indexes: [{ fields: ['rollNo'] }],
+			includes: ['teachers'],
 			pagination: {
-				offset: { default: 0 },
-				limit: { default: 25, max: 200 },
+				offset: { type: 'number', default: 0 },
+				limit: { type: 'number', default: 25, maximum: 200 },
 				order: {
 					default: 'recent',
 					orders: {
 						recent: [{
-							field: 'date',
+							field: 'createdAt',
 							direction: 'ASC',
 						}],
 					},
@@ -108,34 +65,16 @@ const config = {
 			schema: {
 				type: 'object',
 				properties: {
-					date: {
+					name: { type: 'string' },
+					rollNo: { type: 'number' },
+					class: { type: 'string' },
+					section: { type: 'string' },
+					address: { type: 'string' },
+					classTeacher: {
 						type: 'string',
-						format: 'date',
-						title: 'Date',
-					},
-					credit: {
-						type: 'string',
-						title: 'Credit',
-					},
-					debit: {
-						type: 'string',
-						title: 'Debit',
-					},
-					amount: {
-						type: 'number',
-						title: 'Amount',
-					},
-					document: {
-						type: 'string',
-						title: 'Document',
-					},
-					notes: {
-						type: 'string',
-						title: 'Notes',
-					},
-					country: {
-						type: 'string',
-						enum: ['India', 'Africa', 'US'],
+						format: 'ref',
+						entity: 'teachers',
+						prop: 'id',
 					},
 				},
 			},
@@ -143,10 +82,7 @@ const config = {
 		},
 	},
 	schemaExtensions: {
-		test: {
-			type: 'string',
-			title: 'test',
-		},
+		createdBy: { type: 'string' },
 	},
 	auth: {
 		strategies: {
