@@ -6,8 +6,10 @@ import { expressResources as setupResources } from 'express-resources';
 import setupMiddleWare from './setup/setupMiddleWare';
 import setupHooks from './setup/setupHooks';
 import { pipe } from './helpers';
+import setupPlugins from './setup/setupPlugin';
 
 const main = () => pipe([
+	setupPlugins,
 	setupMiddleWare,
 	setupRoutes,
 	setupResources,
