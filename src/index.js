@@ -7,6 +7,7 @@ import setupMiddleWare from './setup/setupMiddleWare';
 import setupHooks from './setup/setupHooks';
 import { pipe } from './helpers';
 import setupPlugins from './setup/setupPlugin';
+import execPlugin from './execPlugin';
 
 const main = () => pipe([
 	setupPlugins,
@@ -14,6 +15,7 @@ const main = () => pipe([
 	setupRoutes,
 	setupResources,
 	setupHooks,
+	execPlugin,
 	setupServer,
 ], buildContext());
 

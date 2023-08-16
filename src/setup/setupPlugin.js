@@ -1,10 +1,11 @@
 import { setup } from 'express-auth-plugin';
 
 const setupPlugins = () => {
-	const { resources } = setup();
+	const { resources, routes } = setup();
 
 	return {
 		config: { resources },
+		routes: routes,
 	};
 };
 
