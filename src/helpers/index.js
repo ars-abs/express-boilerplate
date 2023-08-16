@@ -1,4 +1,5 @@
 import { keys, merge } from '@laufire/utils/collection';
+import { isArray } from '@laufire/utils/reflection';
 
 const reduceSync = async (
 	collection, reducer, initial,
@@ -32,8 +33,11 @@ const pipe = (pipes, data) => reduceSync(
 	), data,
 );
 
+const wrapAsArray = (data) => (isArray(data) ? data : [data]);
+
 export {
 	reduceSync,
 	runSteps,
 	pipe,
+	wrapAsArray,
 };
