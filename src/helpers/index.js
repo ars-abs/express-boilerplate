@@ -27,7 +27,9 @@ const runSteps = (steps, data) => reduceSync(
 );
 
 const pipe = (pipes, data) => reduceSync(
-	pipes, async (acc, c) => merge(await c(acc) || {}, acc), data,
+	pipes, async (acc, c) => merge(
+		{}, acc, await c(acc) || {}
+	), data,
 );
 
 export {
