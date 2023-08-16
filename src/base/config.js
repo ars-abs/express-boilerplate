@@ -115,6 +115,11 @@ const config = {
 		callbackURL: '/cb',
 		repo: 'postgres',
 	},
+	signed: {
+		path: 'use-signed/:id',
+		resource: 'signed',
+		repo: 'postgres',
+	},
 };
 
 export default config;
