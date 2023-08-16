@@ -1,12 +1,21 @@
 import { setup } from 'express-auth-plugin';
+import { setup as setupSignedURL } from 'setup-signed-url';
+import { reduce, merge } from '@laufire/utils/collection';
 
-const setupPlugins = () => {
-	const { resources, routes } = setup();
+const setupPlugins = (context) => {
+	const setups = [setup, setupSignedURL];
 
-	return {
-		config: { resources },
-		routes: routes,
-	};
+	const result = reduce(
+		setups, (acc, fn) => {
+			const { routes, resources } = fn(context);
+
+			return merge(
+				{}, acc, { routes: routes, config: { resources }}
+			);
+		}, {}
+	);
+
+	return result;
 };
 
 export default setupPlugins;
