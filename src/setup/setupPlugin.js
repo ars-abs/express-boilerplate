@@ -7,10 +7,10 @@ const setupPlugins = (context) => {
 
 	const result = reduce(
 		setups, (acc, fn) => {
-			const { routes, resources } = fn(context);
+			const { resources, ...rest } = fn(context);
 
 			return merge(
-				{}, acc, { routes: routes, config: { resources }}
+				{}, acc, { ...rest, config: { resources }}
 			);
 		}, {}
 	);
