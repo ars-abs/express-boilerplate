@@ -2,18 +2,16 @@ import 'module-alias/register';
 import setupServer from './setup/setupServer';
 import setupRoutes from './setup/setupRoutes';
 import buildContext from './setup/buildContext';
-import { expressResources as setupResources } from 'express-resources';
 import setupMiddleWare from './setup/setupMiddleWare';
 import setupHooks from './setup/setupHooks';
 import { pipe } from './helpers';
-import setupPlugins from './setup/setupPlugin';
 import execPlugin from './execPlugin';
+import build from './setup/build';
 
 const main = () => pipe([
-	setupPlugins,
+	build,
 	setupMiddleWare,
 	setupRoutes,
-	setupResources,
 	setupHooks,
 	execPlugin,
 	setupServer,
