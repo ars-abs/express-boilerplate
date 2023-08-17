@@ -113,6 +113,7 @@ const config = {
 		loginURL: '/login',
 		logoutURL: '/logout',
 		callbackURL: '/cb',
+		renewURL: '/renewToken',
 		repo: 'postgres',
 	},
 	signed: {
