@@ -5,7 +5,7 @@ import { reduce, merge } from '@laufire/utils/collection';
 const setupPlugins = (context) => {
 	const setups = [setup, setupSignedURL];
 
-	const result = reduce(
+	return reduce(
 		setups, (acc, fn) => {
 			const { resources, ...rest } = fn(context);
 
@@ -14,8 +14,6 @@ const setupPlugins = (context) => {
 			);
 		}, {}
 	);
-
-	return result;
 };
 
 export default setupPlugins;
