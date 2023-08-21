@@ -1,10 +1,10 @@
-import { expressResources as setupResources } from 'express-resources';
-import setupPlugins from './setupPlugin';
+import initPlugins from './initPlugins';
 import { pipe } from '../helpers';
+import setupPlugins from './setupPlugins';
 
 const build = (context) => pipe([
+	initPlugins,
 	setupPlugins,
-	setupResources,
 ], context);
 
 export default build;
