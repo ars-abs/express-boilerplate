@@ -18,6 +18,7 @@ const config = {
 
 	// configurations here...
 	cors: { origin: '*' },
+	schemaPath: '/schema',
 	repos: {
 		postgres: {
 			type: 'postgres',
