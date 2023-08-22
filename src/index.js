@@ -2,7 +2,7 @@ import 'module-alias/register';
 import { pipe } from './helpers';
 import build from './build';
 import execute from './execute';
-import buildContext from './setup/buildContext';
+import buildContext from './buildContext';
 
 const main = () => pipe([
 	build,
