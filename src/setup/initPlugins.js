@@ -16,7 +16,7 @@ const initPlugins = (context) => {
 			const { resources, ...rest } = await plugin(acc);
 
 			return merge(
-				{}, acc, { ...rest, config: { resources }}
+				{}, acc, rest, { config: { resources }}
 			);
 		}, context
 	);
