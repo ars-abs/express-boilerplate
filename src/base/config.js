@@ -117,7 +117,7 @@ const config = {
 		repo: 'postgres',
 	},
 	signed: {
-		path: 'use-signed/:id',
+		path: '/use-signed/:id',
 		resource: 'signed',
 		repo: 'postgres',
 	},
