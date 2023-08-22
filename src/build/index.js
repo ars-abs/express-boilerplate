@@ -1,6 +1,6 @@
-import initPlugins from './initPlugins';
+import initPlugins from '../setup/initPlugins';
 import { pipe } from '../helpers';
-import setupPlugins from './setupPlugins';
+import setupPlugins from '../setup/setupPlugins';
 
 const build = (context) => pipe([
 	initPlugins,
