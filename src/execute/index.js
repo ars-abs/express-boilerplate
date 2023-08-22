@@ -1,9 +1,9 @@
-import execPlugin from '../execPlugin';
 import { pipe } from '../helpers';
-import setupHooks from '../setup/setupHooks';
-import setupMiddleWare from '../setup/setupMiddleWare';
-import setupRoutes from '../setup/setupRoutes';
-import setupServer from '../setup/setupServer';
+import setupMiddleWare from './setupMiddleWare';
+import setupRoutes from './setupRoutes';
+import setupHooks from './setupHooks';
+import execPlugin from './execPlugin';
+import setupServer from './setupServer';
 
 const execute = (context) => pipe([
 	setupMiddleWare,

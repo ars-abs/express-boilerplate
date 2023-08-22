@@ -1,6 +1,6 @@
 import { map } from '@laufire/utils/collection';
-import enrichReq from './middlewares/enrichReq';
-import { wrapAsArray } from './helpers';
+import enrichReq from '../middlewares/enrichReq';
+import { wrapAsArray } from '../helpers';
 
 const methods = {
 	'*': 'all',
