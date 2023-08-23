@@ -1,5 +1,4 @@
 import { map } from '@laufire/utils/collection';
-import enrichReq from '../middlewares/enrichReq';
 import { wrapAsArray } from '../helpers';
 
 const methods = {
@@ -19,7 +18,6 @@ const setupRoute = ({ app, type, path, functions }) => {
 const execPlugin = (context) => {
 	const { app, routes = {}} = context;
 
-	app.use(enrichReq(context));
 	map(routes, (fns, route) => {
 		const functions = wrapAsArray(fns);
 		const [type, path] = route.split(' ');
