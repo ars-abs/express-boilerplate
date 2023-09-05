@@ -84,6 +84,7 @@
     "@controllers": "src/controllers",
     "@getRepos": "src/getRepos",
     "@middlewares": "src/middlewares",
-    "@setup": "src/setup"
+    "@setup": "src/setup",
+    "@helpers": "src/helpers"
   }
 }
