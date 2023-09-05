@@ -17,7 +17,7 @@ const initPlugins = (context) => {
 
 	return reduceSync(
 		plugins, async (acc, plugin) => {
-			const { resources, ...rest } = await plugin(acc);
+			const { resources = {}, ...rest } = await plugin(acc);
 
 			return merge(
 				{}, acc, rest, { config: { resources }}
