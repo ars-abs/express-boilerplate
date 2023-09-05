@@ -35,9 +35,15 @@ const pipe = (pipes, data) => reduceSync(
 
 const wrapAsArray = (data) => (isArray(data) ? data : [data]);
 
+const pipeline = (pipes) =>
+	(context) => reduceSync(
+		pipes, (acc, fn) => (acc.error ? acc : fn(context)), {}
+	);
+
 export {
 	reduceSync,
 	runSteps,
 	pipe,
 	wrapAsArray,
+	pipeline,
 };
