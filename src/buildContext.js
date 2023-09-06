@@ -2,6 +2,7 @@ import express from 'express';
 import packageInfo from '../package.json';
 import config from '@base/config';
 import getRepos from '@getRepos';
+import log from 'log';
 import service from './service';
 
 const buildContext = () => {
@@ -13,7 +14,7 @@ const buildContext = () => {
 		version: packageInfo.version,
 		lastStartTime: new Date(),
 	};
-	const context = { app, config, repos, info, service } ;
+	const context = { app, config, repos, info, service, log } ;
 
 	return context;
 };
