@@ -86,5 +86,13 @@
     "@middlewares": "src/middlewares",
     "@setup": "src/setup",
     "@helpers": "src/helpers"
-  }
+  },
+  "workspaces": [
+    "./../resources/dist/",
+    "./../log/dist/",
+    "./../auth/dist/",
+    "./../info/dist/",
+    "./../schema/dist/",
+    "./../signedURL/dist/"
+  ]
 }
