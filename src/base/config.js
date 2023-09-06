@@ -17,7 +17,7 @@ const config = {
 	},
 
 	// configurations here...
-	cors: { origin: '*' },
+	cors: { origin: 'http://localhost:6006', credential: true },
 	schemaPath: '/schema',
 	repos: {
 		postgres: {
@@ -119,10 +119,11 @@ const config = {
 				issuer: `https://sts.windows.net/${ env.AZURE_TENANT_ID }/`,
 			},
 		},
-		loginURL: '/login',
-		logoutURL: '/logout',
+		loginURL: '/auth/login',
+		logoutURL: '/auth/logout',
 		callbackURL: '/cb',
-		renewURL: '/renewToken',
+		renewURL: '/auth/refresh',
+		session: '/auth/session',
 		repo: 'postgres',
 	},
 	signed: {
