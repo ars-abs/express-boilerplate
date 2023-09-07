@@ -43,6 +43,7 @@ const config = {
 					salary: { type: 'number' },
 					experience: { type: 'string' },
 				},
+				errorMessage: 'Default error message.',
 			},
 			repo: 'postgres',
 		},
@@ -77,6 +78,13 @@ const config = {
 						entity: 'teachers',
 						prop: 'id',
 					},
+				},
+				errorMessage: {
+					type: 'data should be an object',
+					properties: {
+						rollNo: 'rollNo should be an integer.',
+					},
+					_: 'error message for properties other than rollNo.',
 				},
 			},
 			repo: 'postgres',
