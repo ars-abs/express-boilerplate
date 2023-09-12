@@ -33,20 +33,6 @@ const config = {
 		},
 	},
 	resources: {
-		teachers: {
-			schema: {
-				type: 'object',
-				properties: {
-					name: { type: 'string' },
-					subject: { type: 'string' },
-					address: { type: 'string' },
-					salary: { type: 'number' },
-					experience: { type: 'string' },
-				},
-				errorMessage: 'Default error message.',
-			},
-			repo: 'postgres',
-		},
 		students: {
 			name: 'students',
 			indexes: [{ fields: ['rollNo'] }],
@@ -88,6 +74,20 @@ const config = {
 				},
 			},
 			repo: 'postgres',
+		},
+		teachers: {
+			schema: {
+				type: 'object',
+				properties: {
+					name: { type: 'string' },
+					subject: { type: 'string' },
+					address: { type: 'string' },
+					salary: { type: 'number' },
+					experience: { type: 'string' },
+				},
+				errorMessage: 'Default error message.',
+			},
+			repo: 'sqlite',
 		},
 	},
 	schemaExtensions: {
