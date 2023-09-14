@@ -17,8 +17,9 @@ const config = {
 	},
 
 	// configurations here...
-	cors: { origin: 'http://localhost:6006', credential: true },
-	schemaPath: '/schema',
+	cors: { origin: '*', credential: true },
+	schemaPath: '/meta',
+	baseURL: '/api',
 	repos: {
 		postgres: {
 			type: 'postgres',
