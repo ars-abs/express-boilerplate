@@ -5,6 +5,7 @@ import { setup as log } from 'log';
 import { setup as signedURL } from 'setup-signed-url';
 import { setup as schema } from 'express-resources-schema';
 import { setup as info } from 'health-check';
+import { setup as validate } from 'validate';
 
 const setupPlugins = (context) => pipe([
 	expressAuth,
@@ -13,6 +14,7 @@ const setupPlugins = (context) => pipe([
 	signedURL,
 	schema,
 	info,
+	validate,
 ], context);
 
 export default setupPlugins;
