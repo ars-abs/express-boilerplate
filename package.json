@@ -93,6 +93,7 @@
     "./../auth/dist/",
     "./../info/dist/",
     "./../schema/dist/",
-    "./../signedURL/dist/"
+    "./../signedURL/dist/",
+    "./../validate/dist/"
   ]
 }
