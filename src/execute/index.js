@@ -1,12 +1,12 @@
 import { pipe } from '../helpers';
 import setupMiddleWare from './setupMiddleWare';
-import execPlugin from './execPlugin';
-import setupServer from './setupServer';
+import executePlugin from './executePlugin';
 import setupCatchAll from './setupCatchAll';
+import setupServer from './setupServer';
 
 const execute = (context) => pipe([
 	setupMiddleWare,
-	execPlugin,
+	executePlugin,
 	setupCatchAll,
 	setupServer,
 ], context);
