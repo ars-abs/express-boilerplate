@@ -10,10 +10,10 @@ const methods = {
 };
 
 const routes = (context) => {
-	const { app, service, config: { baseURL, statusCodes }} = context;
-	const parse = match(`${ baseURL }/:name/:id?`, { decode: decodeURIComponent });
+	const { app, service, config: { basePath, statusCodes }} = context;
+	const parse = match(`${ basePath }/:name/:id?`, { decode: decodeURIComponent });
 
-	app.all('/*', async (req, res) => {
+	app.all(`${ basePath }/*`, async (req, res) => {
 		const { name, id } = parse(req.path).params;
 		const { method, path, query, body: payload } = req;
 		const action = findIndex(methods, (fn) => fn({ id, method }));
@@ -24,7 +24,7 @@ const routes = (context) => {
 			...context, name, action, data, meta,
 		});
 
-		res.status(statusCodes[response.meta.status] || 500);
+		res.status(statusCodes[response.meta.status] || 200);
 		res.json(response);
 	});
 };

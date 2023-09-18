@@ -22,7 +22,7 @@ const config = {
 	},
 	cors: { origin: '*', credential: true },
 	schemaPath: '/meta',
-	baseURL: '/api',
+	basePath: '/api',
 	statusCodes:{
 		notFound: 404,
 		invalidInput: 400,
