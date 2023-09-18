@@ -1,4 +1,5 @@
-import { keys, merge } from '@laufire/utils/collection';
+import { keys, length, map,
+	merge, shell, values } from '@laufire/utils/collection';
 import { isArray } from '@laufire/utils/reflection';
 
 const reduceSync = async (
@@ -40,10 +41,25 @@ const pipeline = (pipes) =>
 		pipes, (acc, fn) => (acc.error ? acc : fn(context)), {}
 	);
 
+const mapAsync = async (collection, cb) => {
+	const collectionKeys = keys(collection);
+	const ret = shell(collection);
+	const res = await Promise.all(values(map(collection, cb)));
+	let index = 0;
+	const collectionLength = length(collectionKeys);
+
+	for(let i = 0; i < collectionLength; i++) {
+		ret[collectionKeys[i]] = res[index];
+		index++;
+	}
+	return ret;
+};
+
 export {
 	reduceSync,
 	runSteps,
 	pipe,
 	wrapAsArray,
 	pipeline,
+	mapAsync,
 };
