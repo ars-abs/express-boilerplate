@@ -16,7 +16,10 @@ const setupRoute = ({ app, type, path, functions }) => {
 };
 
 const execPlugin = (context) => {
-	const { app, routes = {}} = context;
+	const { app, routes = {}, middlewares } = context;
+
+	map(middlewares, (middleware) =>
+		map(middleware, (fn) => app.use(fn)));
 
 	map(routes, (fns, route) => {
 		const functions = wrapAsArray(fns);
