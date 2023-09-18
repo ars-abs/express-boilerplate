@@ -2,14 +2,14 @@ import { findIndex } from '@laufire/utils/collection';
 import { match } from 'path-to-regexp';
 
 const methods = {
+	read: ({ id, method }) => id && method === 'GET',
 	list: ({ method }) => method === 'GET',
 	create: ({ method }) => method === 'POST',
-	read: ({ id, method }) => id && method === 'GET',
 	update: ({ method }) => method === 'PUT',
 	delete: ({ method }) => method === 'DELETE',
 };
 
-const routes = (context) => {
+const setupCatchAll = (context) => {
 	const { app, service, config: { basePath, statusCodes }} = context;
 	const parse = match(`${ basePath }/:name/:id?`, { decode: decodeURIComponent });
 
@@ -24,9 +24,9 @@ const routes = (context) => {
 			...context, name, action, data, meta,
 		});
 
-		res.status(statusCodes[response.meta.status] || 200);
+		res.status(statusCodes[response?.meta?.status] || 200);
 		res.json(response);
 	});
 };
 
-export default routes;
+export default setupCatchAll;

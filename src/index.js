@@ -3,12 +3,12 @@ import { pipe } from './helpers';
 import build from './build';
 import execute from './execute';
 import buildContext from './buildContext';
-import routes from './routes';
+import setupCatchAll from './setupCatchAll';
 
 const main = () => pipe([
 	build,
 	execute,
-	routes,
+	setupCatchAll,
 ], buildContext());
 
 main();
