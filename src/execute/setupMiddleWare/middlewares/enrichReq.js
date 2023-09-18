@@ -1,8 +1,11 @@
+import { merge } from '@laufire/utils/collection';
+
 const enrichReq = (context) => (
 	req, res, next
 ) => {
-	// TODO: Merge req.context with context
-	req.context = context ;
+	req.context = merge(
+		{}, context, req.context
+	);
 	next();
 };
 
