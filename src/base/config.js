@@ -17,8 +17,14 @@ const config = {
 	},
 
 	// configurations here...
-	plugin: {
-
+	plugins: {
+		auth: 'express-auth-plugin',
+		resource: 'express-resources',
+		log: 'log',
+		signedURL: 'setup-signed-url',
+		schema: 'express-resources-schema',
+		info: 'health-check',
+		validate: 'validate',
 	},
 	cors: { origin: '*', credential: true },
 	schemaPath: '/meta',
