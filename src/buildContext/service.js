@@ -1,4 +1,4 @@
-import { pipeline } from './helpers';
+import { pipeline } from '../helpers';
 
 const service = async (context) => {
 	const { log, validate, store } = context;
