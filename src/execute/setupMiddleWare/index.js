@@ -1,7 +1,7 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
-import enrichReq from '../middlewares/enrichReq';
+import enrichReq from './middlewares/enrichReq';
 
 const setupMiddleWare = (context) => {
 	const { app, config: { cors: corsOption }} = context;
