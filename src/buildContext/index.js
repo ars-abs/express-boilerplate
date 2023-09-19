@@ -3,6 +3,7 @@ import packageInfo from '../../package.json';
 import config from '@base/config';
 import getRepos from './getRepos';
 import service from './service';
+import constants from '@base/constants';
 
 const buildContext = () => {
 	const app = express();
@@ -13,7 +14,7 @@ const buildContext = () => {
 		version: packageInfo.version,
 		lastStartTime: new Date(),
 	};
-	const context = { app, config, repos, info, service } ;
+	const context = { app, config, constants, repos, info, service } ;
 
 	return context;
 };

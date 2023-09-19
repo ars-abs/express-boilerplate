@@ -29,14 +29,6 @@ const config = {
 	cors: { origin: '*', credential: true },
 	schemaPath: '/meta',
 	basePath: '/api',
-	statusCodes: {
-		notFound: 404,
-		invalidInput: 400,
-		success: 200,
-		created: 201,
-		deleted: 204,
-		unauthorized: 401,
-	},
 	repos: {
 		postgres: {
 			type: 'postgres',

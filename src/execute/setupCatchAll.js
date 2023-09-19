@@ -10,7 +10,8 @@ const methods = {
 };
 
 const setupCatchAll = (context) => {
-	const { app, service, config: { basePath, statusCodes }} = context;
+	const { app, service,
+		config: { basePath }, constants: { statusCodes }} = context;
 	const parse = match(`${ basePath }/:name/:id?`, { decode: decodeURIComponent });
 
 	app.all(`${ basePath }/*`, async (req, res) => {
