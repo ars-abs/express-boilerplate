@@ -29,7 +29,7 @@ const config = {
 	cors: { origin: '*', credential: true },
 	schemaPath: '/meta',
 	basePath: '/api',
-	statusCodes:{
+	statusCodes: {
 		notFound: 404,
 		invalidInput: 400,
 		success: 200,
