@@ -4,8 +4,9 @@ import config from '@base/config';
 import getRepos from './getRepos';
 import service from './service';
 import constants from '@base/constants';
+import { merge } from '@laufire/utils/collection';
 
-const buildContext = () => {
+const enrichContext = (context) => {
 	const app = express();
 	const repos = getRepos({ config });
 	const info = {
@@ -14,9 +15,11 @@ const buildContext = () => {
 		version: packageInfo.version,
 		lastStartTime: new Date(),
 	};
-	const context = { app, config, constants, repos, info, service } ;
+	const defaultContext = { app, config, constants, repos, info, service } ;
 
-	return context;
+	return merge(
+		{}, defaultContext, context
+	);
 };
 
-export default buildContext;
+export default enrichContext;
