@@ -1,11 +1,8 @@
-import { pipeline } from '../helpers';
+import { bdPipe } from '../helpers';
 
 const service = async (context) => {
-	const { log, validate, store } = context;
-	const pipes = [log, validate, store];
-	const process = pipeline(pipes);
-
-	const response = await process(context);
+	const flow = ['log', 'validate', 'store'];
+	const response = await bdPipe(context)(flow)(context);
 
 	return response;
 };

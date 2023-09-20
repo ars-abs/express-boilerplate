@@ -1,6 +1,7 @@
 import { keys, length, map,
 	merge, shell, values } from '@laufire/utils/collection';
 import { isArray } from '@laufire/utils/reflection';
+import { identity } from '@laufire/utils/fn';
 
 const reduceSync = async (
 	collection, reducer, initial,
@@ -36,10 +37,36 @@ const pipe = (pipes, data) => reduceSync(
 
 const wrapAsArray = (data) => (isArray(data) ? data : [data]);
 
-const pipeline = (pipes) =>
-	(context) => reduceSync(
-		pipes, (acc, fn) => (acc.error ? acc : fn(context)), {}
-	);
+// eslint-disable-next-line max-lines-per-function
+const bdPipe = (pipes) => (flow) => async (context) => {
+	let cursor = 0;
+	let result = {};
+	const { length: flowLength } = flow;
+
+	const next = async (props = {}) => {
+		const currentPipe = flow[cursor++];
+		const pipeFn = pipes[currentPipe] || identity;
+
+		const pipeResult = await pipeFn({
+			...result, ...props, ...context, next,
+		});
+
+		result = { ...result, ...pipeResult };
+
+		const nextFn = flowLength > cursor && !result.error ? next : identity;
+		const nextResult = await nextFn(pipeResult);
+
+		result = { ...result, ...nextResult };
+
+		return result;
+	};
+
+	result = await next(context);
+
+	const { next: ignored, ...rest } = result;
+
+	return rest;
+};
 
 const mapAsync = async (collection, cb) => {
 	const collectionKeys = keys(collection);
@@ -60,6 +87,6 @@ export {
 	runSteps,
 	pipe,
 	wrapAsArray,
-	pipeline,
+	bdPipe,
 	mapAsync,
 };
