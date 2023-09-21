@@ -3,9 +3,11 @@ import { pipe } from './helpers';
 import build from './build';
 import execute from './execute';
 import enrichContext from './buildContext';
+import extendResources from './extendResources';
 
 const main = (context) => pipe([
 	enrichContext,
+	extendResources,
 	build,
 	execute,
 ], context);

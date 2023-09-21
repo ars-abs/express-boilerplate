@@ -47,6 +47,7 @@ const config = {
 			name: 'students',
 			indexes: [{ fields: ['rollNo'] }],
 			includes: ['teachers'],
+			flow: ['validate', 'store'],
 			pagination: {
 				offset: { type: 'number', default: 0 },
 				limit: { type: 'number', default: 25, maximum: 200 },
@@ -100,8 +101,11 @@ const config = {
 			repo: 'sqlite',
 		},
 	},
-	schemaExtensions: {
-		createdBy: { type: 'string' },
+	extensions: {
+		schema: {
+			createdBy: { type: 'string' },
+		},
+		flow: ['log', 'validate', 'store'],
 	},
 	auth: {
 		strategies: {
