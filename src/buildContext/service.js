@@ -1,7 +1,9 @@
 import { bdPipe } from '../helpers';
 
 const service = async (context) => {
-	const flow = ['log', 'validate', 'store'];
+	const { config: { resources }, name } = context;
+	const { flow } = resources[name];
+
 	const response = await bdPipe(context)(flow)(context);
 
 	return response;
