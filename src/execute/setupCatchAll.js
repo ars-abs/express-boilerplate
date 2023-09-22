@@ -22,10 +22,11 @@ const setupCatchAll = (context) => {
 		const meta = { ...query, path };
 
 		const response = await service({
-			...context, name, action, data, meta,
+			...context, ...req.context, name, action, data, meta,
 		});
+		const defaultStatus = 200;
 
-		res.status(statusCodes[response?.meta?.status] || 200);
+		res.status(statusCodes[response?.meta?.status] || defaultStatus);
 		res.json(response);
 	});
 };
