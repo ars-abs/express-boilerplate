@@ -41,6 +41,10 @@ const config = {
 			type: 'sqlite',
 			path: './db.sqlite',
 		},
+		memory: {
+			type: 'sqlite',
+			path: ':memory:',
+		},
 	},
 	resources: {
 		students: {
@@ -87,6 +91,7 @@ const config = {
 			repo: 'postgres',
 		},
 		teachers: {
+			flow: ['log', 'authenticate', 'validate', 'store'],
 			schema: {
 				type: 'object',
 				properties: {
@@ -139,6 +144,8 @@ const config = {
 		renewURL: '/auth/refresh',
 		session: '/auth/session',
 		repo: 'postgres',
+		accessTokenExp: '15m',
+		refreshTokenExp: '90h',
 	},
 	signed: {
 		path: '/use-signed/:id',
