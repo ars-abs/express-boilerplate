@@ -41,7 +41,6 @@ const wrapAsArray = (data) => (isArray(data) ? data : [data]);
 const bdPipe = (pipes) => (flow) => async (context) => {
 	let cursor = 0;
 	let result = {};
-	const { length: flowLength } = flow;
 
 	const next = async (props = {}) => {
 		const currentPipe = flow[cursor++];
@@ -52,11 +51,6 @@ const bdPipe = (pipes) => (flow) => async (context) => {
 		});
 
 		result = { ...result, ...pipeResult };
-
-		const nextFn = flowLength > cursor && !result.error ? next : identity;
-		const nextResult = await nextFn(pipeResult);
-
-		result = { ...result, ...nextResult };
 
 		return result;
 	};
