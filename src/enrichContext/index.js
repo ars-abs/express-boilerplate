@@ -1,17 +1,10 @@
 import express from 'express';
 import packageInfo from '../../package.json';
 import config from '@base/config';
-import service from './service';
 import constants from '@base/constants';
-import { merge, reduce } from '@laufire/utils/collection';
-
-const processRepos = (repoTypes) => reduce(
-	config.repos, (
-		acc, { type, ...props }, key
-	) => (repoTypes[type]
-		? merge(acc, { [key]: repoTypes[type](props) })
-		: acc), {}
-);
+import { merge } from '@laufire/utils/collection';
+import processRepos from './processRepos';
+import service from './service';
 
 const enrichContext = (context) => {
 	const app = express();
