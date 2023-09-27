@@ -3,7 +3,7 @@ import packageInfo from '../../package.json';
 import config from '@base/config';
 import service from './service';
 import constants from '@base/constants';
-import { merge } from '@laufire/utils/collection';
+import { map, merge } from '@laufire/utils/collection';
 
 const enrichContext = (context) => {
 	const app = express();
@@ -13,7 +13,13 @@ const enrichContext = (context) => {
 		version: packageInfo.version,
 		lastStartTime: new Date(),
 	};
-	const defaultContext = { app, config, constants, info, service } ;
+	const repos = {};
+	const processRepos = (repoTypes) =>
+		map(config.repos, ({ type, ...props }) => repoTypes[type](props));
+
+	const defaultContext = {
+		app, config, constants, repos, processRepos, info, service,
+	} ;
 
 	return merge(
 		{}, defaultContext, context
