@@ -92,6 +92,7 @@
     "./../info/dist/",
     "./../schema/dist/",
     "./../signedURL/dist/",
-    "./../validate/dist/"
+    "./../validate/dist/",
+    "./../cache/dist/"
   ]
 }
