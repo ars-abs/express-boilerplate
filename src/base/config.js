@@ -25,6 +25,7 @@ const config = {
 		schema: 'express-resources-schema',
 		info: 'health-check',
 		validate: 'validate',
+		cache: 'cache',
 	},
 	cors: { origin: '*', credential: true },
 	schemaPath: '/meta',
@@ -45,13 +46,22 @@ const config = {
 			type: 'sqlite',
 			path: ':memory:',
 		},
+		redis: {
+			type: 'redis',
+			host: 'localhost',
+			port: 6379,
+		},
 	},
 	resources: {
 		students: {
 			name: 'students',
 			indexes: [{ fields: ['rollNo'] }],
 			includes: ['teachers'],
-			flow: ['validate', 'store'],
+			flow: ['validate', 'cache', 'store'],
+			cache: {
+				repo: 'redis',
+				duration: '15m'
+			},
 			pagination: {
 				offset: { type: 'number', default: 0 },
 				limit: { type: 'number', default: 25, maximum: 200 },
@@ -109,6 +119,10 @@ const config = {
 	extensions: {
 		schema: {
 			createdBy: { type: 'string' },
+		},
+		cache: {
+			repo: 'redis',
+			duration: '10m'
 		},
 		flow: ['log', 'validate', 'store'],
 	},
