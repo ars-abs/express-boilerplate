@@ -6,7 +6,7 @@ const methods = {
 	list: ({ method }) => method === 'GET',
 	create: ({ method }) => method === 'POST',
 	update: ({ method }) => method === 'PUT',
-	delete: ({ method }) => method === 'DELETE',
+	remove: ({ method }) => method === 'DELETE',
 };
 
 const setupCatchAll = (context) => {
