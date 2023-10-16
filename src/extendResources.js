@@ -1,11 +1,11 @@
 import { map, overlay } from '@laufire/utils/collection';
 
 const extendResources = ({
-	config: { resources, extensions: { schema, flow }},
+	config: { resources, extensions: { schema, ...props }},
 }) => ({
 	config: {
 		resources: map(resources, (resource) => overlay(
-			{}, { flow }, { schema: { properties: schema }}, resource,
+			{}, props, { schema: { properties: schema }}, resource,
 		)),
 	},
 });
