@@ -3,7 +3,7 @@ import packageInfo from '../../package.json';
 import config from '@base/config';
 import constants from '@base/constants';
 import { merge } from '@laufire/utils/collection';
-import processRepos from './processRepos';
+import genRepos from './genRepos';
 import service from './service';
 
 const enrichContext = (context) => {
@@ -15,6 +15,7 @@ const enrichContext = (context) => {
 		lastStartTime: new Date(),
 	};
 	const repos = {};
+	const processRepos = genRepos(context);
 
 	const defaultContext = {
 		app, config, constants, repos, processRepos, info, service,
