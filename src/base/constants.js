@@ -6,6 +6,7 @@ const constants = {
 		created: 201,
 		deleted: 204,
 		unauthorized: 401,
+		forbidden: 403,
 	},
 };
 

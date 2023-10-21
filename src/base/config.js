@@ -60,7 +60,7 @@ const config = {
 			flow: ['validate', 'cache', 'store'],
 			cache: {
 				repo: 'redis',
-				duration: '15m'
+				duration: '15m',
 			},
 			pagination: {
 				offset: { type: 'number', default: 0 },
@@ -122,7 +122,7 @@ const config = {
 		},
 		cache: {
 			repo: 'redis',
-			duration: '10m'
+			duration: '10m',
 		},
 		flow: ['log', 'validate', 'store'],
 	},
@@ -156,6 +156,7 @@ const config = {
 		logoutURL: '/auth/logout',
 		callbackURL: '/cb',
 		renewURL: '/auth/refresh',
+		registerURL: '/auth/register',
 		session: '/auth/session',
 		repo: 'postgres',
 		accessTokenExp: '15m',
