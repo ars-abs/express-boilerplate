@@ -10,8 +10,4 @@ const main = (context) => pipe([
 	execute,
 ], context);
 
-main();
-// for testing
-export {
-	main,
-};
+export default main;
